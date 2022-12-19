@@ -1,13 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+import Homepage from './src/screens/Homepage';
+
 
 export default function App() {
+
+  let [fontsLoaded] = useFonts({
+    'Montserrat_Semibold':require('./assets/fonts/Montserrat-SemiBold.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+  else {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Homepage />
   );
+}
 }
 
 const styles = StyleSheet.create({
