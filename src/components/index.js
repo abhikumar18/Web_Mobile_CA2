@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
     
 })
 
-export default function Homepage(){
+export default function Card(props){
     return <View style={styles.view}>
                <checkBox style={styles.checkbox}/>
-               <Text style={styles.text}></Text>
+               <Text style={styles.text}>{props.text}</Text>
     </View>
 }
